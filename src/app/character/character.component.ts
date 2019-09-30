@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 
+
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-character',
+  templateUrl: './character.component.html',
+  styleUrls: ['./character.component.css']
 })
-export class HomeComponent implements OnInit {
+export class CharacterComponent implements OnInit {
 
   constructor(private http: HttpClient){
 
@@ -19,12 +20,19 @@ export class HomeComponent implements OnInit {
   readonly ROOT_URL = 'https://character-database.becode.xyz/characters';
 
   posts: any;
+  target : any;
 
 
 
 
   getPosts(){
     this.posts = this.http.get(this.ROOT_URL);
+    const url = window.location.href;
+    const words = url.split('/');
+    this.target = words[4];
+    
   }
+
 }
+
 

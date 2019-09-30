@@ -1,0 +1,22 @@
+<h1> character </h1>
+<hr>
+<div id="character" *ngFor="let character of posts | async">
+  
+    
+        <div *ngIf="character.id === target">
+
+
+        <h3 class="name"> {{character.name}}</h3>
+
+        <img src="https://lh3.googleusercontent.com/proxy/dkW6Sh2kOwWfscY9XHObKJxAOqxLN69nx0lik3mfnyp8SUtyi96wb5fD2RiUo9i2d7m1jtauVY0OkmnqZOjYnlcfLLLqhk-hONe1yc-qqY1odAzcHK8=w1200-h630-p-k-no-nu">
+   
+        <p><em><i>{{character.description}}</i></em></p>
+  
+        <button><a routerLink="/edit/{{character.id}}" routerLinkActive="active">Edit</a></button>
+        <button><a routerLink="/edit/{{character.id}}" routerLinkActive="active">Delete</a></button> 
+
+
+</div>
+</div>
+
+<button>new</button>
