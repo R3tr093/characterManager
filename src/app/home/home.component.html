@@ -10,13 +10,13 @@
    
     <button> <a routerLink="/characters/{{character.id}}" routerLinkActive="active">See more</a></button>
     <button>  <a routerLink="/edit/{{character.id}}" routerLinkActive="active">Edit</a></button>
-    <button type="button"  (click)="displayModal()">remove</button>
+    <button type="button"  (click)="displayModal(character.id)">remove</button>
 
     <div id="modal">
 
         <p>Hey are you sure you want to delete him ?  </p>
 
-        <button type="button"  (click)="remove(character.id)"  class="modalBtn">
+        <button type="button"  (click)="remove()"  class="modalBtn">
 
             Yes 
 

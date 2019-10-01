@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class HomeComponent implements OnInit {
 
   posts: any;
+  target: any;
 
 
 
@@ -31,9 +32,9 @@ export class HomeComponent implements OnInit {
     this.posts = this.http.get(this.ROOT_URL);
   }
 
-  remove(id:string){
+  remove(){
 
-      this.posts = this.http.delete(this.ROOT_URL + "/" + id).subscribe(
+      this.posts = this.http.delete(this.ROOT_URL + "/" + String(this.target)).subscribe(
         (val) => {
           window.location.replace("/");
         },
@@ -49,9 +50,11 @@ export class HomeComponent implements OnInit {
 
   }
 
-  displayModal(){
+  displayModal(id:string){
 
     let modalElt = document.getElementById('modal');
+    let target = id;
+    this.target = target;
     modalElt.style.display = "block";
 
 
