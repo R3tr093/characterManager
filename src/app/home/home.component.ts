@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
 
 @Component({
   selector: 'app-home',
@@ -8,23 +7,9 @@ import { HttpClient } from '@angular/common/http'
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private http: HttpClient){
-
-  }
+  constructor() { }
 
   ngOnInit() {
-    this.getPosts();
   }
 
-  readonly ROOT_URL = 'https://character-database.becode.xyz/characters';
-
-  posts: any;
-
-
-
-
-  getPosts(){
-    this.posts = this.http.get(this.ROOT_URL);
-  }
 }
-

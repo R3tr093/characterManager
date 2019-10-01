@@ -1,19 +1,42 @@
-<h1> List of characters </h1>
-<hr>
-<div id="home" *ngFor="let character of posts | async">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Character Manager</title>
+</head>
+<body>
+    <header class="container"> 
+        <h1>Character Manager</h1>
+    </header>
+    <main class="container">
+        <div class="row">
+            <div id ="newC"class="card" style="width: 200px">
+                <img class="card-img-top" src="../../assets/businessman_add.png" alt="Add character">
+                <div class="card-body">
+                    <h4 class="card-title">Add new character</h4>
+                    <p class="card-text">Go to creation page</p>
+                    <a href="#" class="stretched-link"></a>
+                </div>
+            </div>
+        
 
-   <h3 class="name"> {{character.name}}</h3>
-
-    <img src="https://lh3.googleusercontent.com/proxy/dkW6Sh2kOwWfscY9XHObKJxAOqxLN69nx0lik3mfnyp8SUtyi96wb5fD2RiUo9i2d7m1jtauVY0OkmnqZOjYnlcfLLLqhk-hONe1yc-qqY1odAzcHK8=w1200-h630-p-k-no-nu">
-    
-    <p><em><i>{{character.description}}</i></em></p>
-   
-    <button> <a routerLink="/characters/{{character.id}}" routerLinkActive="active">See more</a></button>
-    <button>  <a routerLink="/edit/{{character.id}}" routerLinkActive="active">Edit</a></button>
-    <button> <a routerLink="/edit/{{character.id}}" routerLinkActive="active">Delete</a></button> 
-
-
-
-</div>
-
-<button>new</button>
+            <div class="card" style="width: 200px">
+                <img class ="card-img-top" src="../../assets/c1.png" alt="profile">
+                <div class="card-body">
+                    <h4 class="card-title">Patrick</h4>
+                    <p class="card-text"> Description </p>
+                    <a href="#" class="btn btn-primary">See profiles</a>
+                    <a href="#" class="btn btn-warning">Edit</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>        
+    </main>
+    <footer class="container">
+        <p>Becode Project</p>
+    </footer>
+</body>
+</html>
