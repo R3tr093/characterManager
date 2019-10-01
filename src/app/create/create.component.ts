@@ -77,7 +77,6 @@ export class CreateComponent implements OnInit {
     this.imgData = ((document.getElementById("thumb")as HTMLImageElement).getAttribute('src'));
 
     const words = this.imgData.split(',');
-    console.log(words[1])
     this.imgData = words[1];
     
 

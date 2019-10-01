@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getPosts();
+    
   }
 
   readonly ROOT_URL = 'https://character-database.becode.xyz/characters';
@@ -29,7 +31,21 @@ export class HomeComponent implements OnInit {
 
   remove(id:string){
     
-    this.posts = this.http.delete(this.ROOT_URL + "/" + id);
+    let response = prompt("Do you want to delete this character ? Y/N ")
+
+    if(response === "Y")
+    {
+      this.posts = this.http.delete(this.ROOT_URL + "/" + id);
+      window.location.replace("https://charactermanager.netlify.com/");
+    
+    }
+
+    else
+    {
+      alert('Aborted')
+    }
+
+    
   }
 
 

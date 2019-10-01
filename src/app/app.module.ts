@@ -9,6 +9,7 @@ import { EditComponent } from './edit/edit.component';
 import { CharacterComponent } from './character/character.component';
 import { NavComponent } from './nav/nav.component';
 import { CreateComponent } from './create/create.component';
+import { NgxMdModule } from 'ngx-md';
 
 
 
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxMdModule.forRoot(),
     [
       RouterModule.forRoot(
         appRoutes,

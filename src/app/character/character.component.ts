@@ -23,6 +23,25 @@ export class CharacterComponent implements OnInit {
   target : any;
 
 
+  remove(id:string){
+    
+    let response = prompt("Do you want to delete this character ? Y/N ")
+
+    if(response === "Y")
+    {
+      this.posts = this.http.delete(this.ROOT_URL + "/" + id);
+      window.location.replace("https://charactermanager.netlify.com/");
+    }
+
+    else
+    {
+      alert('Aborted')
+    }
+
+    
+  }
+
+
 
 
   getPosts(){

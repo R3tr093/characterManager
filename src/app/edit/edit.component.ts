@@ -93,7 +93,7 @@ export class EditComponent implements OnInit {
 
     this.exportData = JSON.stringify({name:this.nameData, shortDescription: this.shortDescData, description:this.descData, image: this.imgData});
 
-    this.http.put("https://character-database.becode.xyz/characters/" + this.target,{
+    this.http.put(`https://character-database.becode.xyz/characters/${this.target}`,{
       "name": this.nameData,
       "description": this.descData,
       "shortDescription": this.shortDescData,
@@ -101,13 +101,13 @@ export class EditComponent implements OnInit {
     },httpOptions)
     .subscribe(
         (val) => {
-            console.log("PATCH call successful value returned in body", val);
+            console.log("PUT call successful value returned in body", val);
         },
         response => {
-            console.log("PATCH call in error", response);
+            console.log("PUT call in error", response);
         },
         () => {
-            console.log("The PATCH observable is now completed.");
+            console.log("The PUT observable is now completed.");
         });
   }
 
