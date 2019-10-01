@@ -8,15 +8,48 @@
     
             <h3 class="name"> {{character.name}}</h3>
     
-            <img src="https://lh3.googleusercontent.com/proxy/dkW6Sh2kOwWfscY9XHObKJxAOqxLN69nx0lik3mfnyp8SUtyi96wb5fD2RiUo9i2d7m1jtauVY0OkmnqZOjYnlcfLLLqhk-hONe1yc-qqY1odAzcHK8=w1200-h630-p-k-no-nu">
+            <img src="data:image/jpeg;base64,{{character.image}}">
        
             <p><em><i>{{character.description}}</i></em></p>
       
-            <button><a routerLink="/edit/{{character.id}}" routerLinkActive="active">Edit</a></button>
             <button><a routerLink="/edit/{{character.id}}" routerLinkActive="active">Delete</a></button> 
     
     
     </div>
     </div>
-    
-    <button>new</button>
+
+    <div id="editForm">
+                <form > 
+                
+                <p>Type in a name : <br>
+                    
+                    <input type="text" required min="2" maxlength="20" id="name" name="name"> 
+                
+                </p>    
+                
+                <p>Type in a  short description :  </p>
+                <br>
+                <input type="text" required min="2" maxlength="90" id="shortDesc" name="shortDescription" required>
+                
+                
+                <p>Type in a  description : </p>
+                <br>
+                <textarea type="" required min="2" maxlength="100" name="desc" id="description" required></textarea> 
+                
+                
+                <input type="file" id="files"  required /><br>
+                <output id="list" ></output><br> 
+                
+                <input style="display: none" required >
+                
+                
+                
+                <button type="submit" (click)="editData()">Edit character</button>
+                
+                
+                </form>
+                </div>
+                
+
+
+<button>new</button>
