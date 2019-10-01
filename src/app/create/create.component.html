@@ -1,0 +1,36 @@
+<div id="create">
+<form method="POST" action="https://character-database.becode.xyz/characters/"  enctype="text/plain"> 
+
+<p>Type in a name : <br>
+    
+    <input type="text" required min="2" maxlength="20" id="name" name="name"> 
+
+</p>    
+
+<p>Type in a  short description :  </p>
+<br>
+<input type="text" required min="2" maxlength="90" id="shortDesc" name="shortDescription" required>
+
+
+<p>Type in a  description : </p>
+<br>
+<textarea type="" required min="2" maxlength="100" name="desc" id="description" required></textarea> 
+
+
+<input type="file" id="files"  required /><br>
+<output id="list" ></output><br> 
+
+<input style="display: none" required >
+
+
+
+<button type="submit" (click)="postData()">Create</button>
+
+
+</form>
+</div>
+
+
+
+
+

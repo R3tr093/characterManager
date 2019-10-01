@@ -8,12 +8,16 @@ import { HomeComponent } from './home/home.component';
 import { EditComponent } from './edit/edit.component';
 import { CharacterComponent } from './character/character.component';
 import { NavComponent } from './nav/nav.component';
+import { CreateComponent } from './create/create.component';
+
+
 
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'characters/:id', component: CharacterComponent },
-  { path: 'edit/:id',      component: EditComponent }
+  { path: 'edit/:id',      component: EditComponent },
+  { path: 'create', component: CreateComponent }
 ];
 
 
@@ -23,7 +27,8 @@ const appRoutes: Routes = [
     HomeComponent,
     EditComponent,
     CharacterComponent,
-    NavComponent
+    NavComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,9 @@ import { HttpClient } from '@angular/common/http'
 })
 export class HomeComponent implements OnInit {
 
+
+
+
   constructor(private http: HttpClient){
 
   }
@@ -20,11 +23,18 @@ export class HomeComponent implements OnInit {
 
   posts: any;
 
-
-
-
   getPosts(){
     this.posts = this.http.get(this.ROOT_URL);
   }
+
+  remove(id:string){
+    
+    this.posts = this.http.delete(this.ROOT_URL + "/" + id);
+  }
+
+
+
+  
+  
 }
 
