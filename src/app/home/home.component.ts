@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 
+  posts: any;
 
 
 
@@ -18,36 +19,50 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getPosts();
+   
     
   }
 
   readonly ROOT_URL = 'https://character-database.becode.xyz/characters';
 
-  posts: any;
+
 
   getPosts(){
     this.posts = this.http.get(this.ROOT_URL);
   }
 
   remove(id:string){
-    
-    let response = prompt("Do you want to delete this character ? Y/N ")
 
-    if(response === "Y")
-    {
-      this.posts = this.http.delete(this.ROOT_URL + "/" + id);
-      window.location.replace("https://charactermanager.netlify.com/");
-    
-    }
+      this.posts = this.http.delete(this.ROOT_URL + "/" + id).subscribe(
+        (val) => {
+          window.location.replace("/");
+        },
+        response => {
+            console.log("POST call in error", response);
+        },
+        () => {
+            console.log("The POST observable is now completed.");
+        });
 
-    else
-    {
-      alert('Aborted')
-    }
 
-    
+     
+
   }
 
+  displayModal(){
+
+    let modalElt = document.getElementById('modal');
+    modalElt.style.display = "block";
+
+
+  }
+
+  hideModal(){
+    let modalElt = document.getElementById('modal');
+    modalElt.style.display = "none";
+  }
+
+  
 
 
   

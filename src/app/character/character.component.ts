@@ -15,6 +15,8 @@ export class CharacterComponent implements OnInit {
 
   ngOnInit() {
     this.getPosts();
+
+    
   }
 
   readonly ROOT_URL = 'https://character-database.becode.xyz/characters';
@@ -24,21 +26,17 @@ export class CharacterComponent implements OnInit {
 
 
   remove(id:string){
-    
-    let response = prompt("Do you want to delete this character ? Y/N ")
 
-    if(response === "Y")
-    {
-      this.posts = this.http.delete(this.ROOT_URL + "/" + id);
-      window.location.replace("https://charactermanager.netlify.com/");
-    }
-
-    else
-    {
-      alert('Aborted')
-    }
-
-    
+    this.posts = this.http.delete(this.ROOT_URL + "/" + id).subscribe(
+      (val) => {
+        window.location.replace("/");
+      },
+      response => {
+          console.log("POST call in error", response);
+      },
+      () => {
+          console.log("The POST observable is now completed.");
+      });
   }
 
 
@@ -50,6 +48,19 @@ export class CharacterComponent implements OnInit {
     const words = url.split('/');
     this.target = words[4];
     
+  }
+
+  displayModal(){
+
+    let modalElt = document.getElementById('modal');
+    modalElt.style.display = "block";
+
+
+  }
+
+  hideModal(){
+    let modalElt = document.getElementById('modal');
+    modalElt.style.display = "none";
   }
 
 }
