@@ -91,7 +91,12 @@ export class EditComponent implements OnInit {
     this.descData = (document.getElementById("description") as HTMLTextAreaElement).value;
     this.imgData = ((document.getElementById("thumb")as HTMLImageElement).getAttribute('src'));
 
+    const words = this.imgData.split(',');
+    this.imgData = words[1];
+
     this.exportData = JSON.stringify({name:this.nameData, shortDescription: this.shortDescData, description:this.descData, image: this.imgData});
+
+    console.log(this.exportData)
 
     this.http.put(`https://character-database.becode.xyz/characters/${this.target}`,{
       "name": this.nameData,
