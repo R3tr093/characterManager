@@ -11,7 +11,8 @@ footer {
 }
 
 div .card-img-overlay{
-    background-color: rgba(255, 255, 255, 0.8)
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 20px;
 }
 
 #newC {
