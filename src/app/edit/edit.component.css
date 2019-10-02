@@ -49,3 +49,28 @@ h2
     display: none;
 
 }
+
+#newBtn
+{
+    position: fixed;
+    left: 5%;
+    top: 45%;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    color: white;
+    font-style: italic;
+    font-family: 'Shadows Into Light', cursive;
+}
+.links
+{
+    color: white;
+    font-style: italic;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.links:hover
+{
+    font-size: 19px;
+    text-decoration: none;
+}

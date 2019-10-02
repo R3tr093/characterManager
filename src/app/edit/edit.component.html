@@ -5,13 +5,13 @@
             <div *ngIf="character.id === target">
     
     
-            <h3 class="name"> {{character.name}}</h3>
+            <h3 class="name" id="oldName"> {{character.name}}</h3>
     
             <img src="data:image/jpeg;base64,{{character.image}}">
        
             <p><em><i>{{character.description}}</i></em></p>
       
-            <button class="btn btn-danger" (click)="displayModal()">delete</button> 
+            <button class="btn btn-danger" title="delete this hero ?" (click)="displayModal()">delete</button> 
     
             <div id="modal">
     
@@ -40,38 +40,42 @@
     <hr>
 
     <div id="create">
-
+         
+               
+                  
+        
                 <form  action="https://character-database.becode.xyz/characters/"> 
                 
                 <p>Type in a new name : <br>
                     
-                    <input type="text" required min="2" maxlength="20" id="name" name="name"> 
+                    <input placeholder="{{oldData.name}}" type="text" required min="2" maxlength="20" id="name" name="name"> 
                 
                 </p>    
                 
                 <p>Type in a new short description :  </p>
                 <br>
-                <input type="text" required min="2" maxlength="90" id="shortDesc" name="shortDescription" required>
+                <input type="text" placeholder="{{oldData.shortDescription}}" required min="2" maxlength="90" id="shortDesc" name="shortDescription" required>
                 
                 
                 <p>Type in a new  description : </p>
                 <br>
-                <textarea type="" required min="2" maxlength="100" name="desc" id="description" required></textarea> 
+                <textarea placeholder="{{oldData.description}}" required min="2" maxlength="100" name="desc" id="description" required></textarea> 
                 
                 <div id="filePick">
-                <input type="file" id="files"  required /><br>
+                <input  type="file" id="files"  required /><br>
                 <output id="list" ></output><br> 
                 </div>
                 <input style="display: none" required >
                 
                 
                 
-                <button  class="btn btn-primary"  id="sendBtn" type="button" (click)="editData()">Update</button>
+                <button  class="btn btn-primary" title="Update this hero ?"  id="sendBtn" type="button" (click)="editData()">Update</button>
                 
                 
                 </form>
                 </div>
-                
+              
+           
 
 
-<button>new</button>
+<button class="btn btn-warning" title="Create a new hero ?" id="newBtn"> <a class="links" routerLink="/create" routerLinkActive="active"> Create </a></button>

@@ -17,6 +17,7 @@ export class EditComponent implements OnInit {
   exportData: any;
   posts: any;
   target : any;
+  oldData : any;
 
 
   constructor(private http: HttpClient){
@@ -25,8 +26,9 @@ export class EditComponent implements OnInit {
 
   ngOnInit() {
     this.getPosts();
+    this.getOldData();
 
-    console.log("https://character-database.becode.xyz/characters/" + this.target)
+   
 
     function handleFileSelect(evt) {
       var files = evt.target.files; // FileList object
@@ -49,7 +51,15 @@ export class EditComponent implements OnInit {
             span.innerHTML = ['<img id="thumb" style="height: 100px; width: 100px;" src="', e.target.result,
                               '" title="', escape(theFile.name), '"/>'].join('');
             document.getElementById('list').insertBefore(span, null);
-            this.imgData = document.getElementById('thumb').getAttribute('src');
+            
+            if(document.getElementById('thumb').getAttribute('src') !== null)
+            {
+              this.imgData = document.getElementById('thumb').getAttribute('src');
+            }
+            
+            
+            
+            
             
            
 
@@ -68,6 +78,18 @@ export class EditComponent implements OnInit {
   }
 
   readonly ROOT_URL = 'https://character-database.becode.xyz/characters';
+
+  getOldData(){
+    this.oldData = this.http.get("https://character-database.becode.xyz/characters" + "/" + this.target)
+    .subscribe(
+        (val) => {
+          this.oldData = val;
+          this.imgData = this.oldData.image;
+          console.log(this.imgData)
+    
+        });}
+
+
 
   getPosts(){
     this.posts = this.http.get(this.ROOT_URL);
@@ -89,14 +111,18 @@ export class EditComponent implements OnInit {
     this.nameData = (document.getElementById("name") as HTMLInputElement).value;
     this.shortDescData = (document.getElementById("shortDesc") as HTMLInputElement).value;
     this.descData = (document.getElementById("description") as HTMLTextAreaElement).value;
-    this.imgData = ((document.getElementById("thumb")as HTMLImageElement).getAttribute('src'));
+  
+    if(document.getElementById('thumb') !== null)
+    {
+      this.imgData = document.getElementById('thumb').getAttribute('src');
+      const words = this.imgData.split(',');
+      this.imgData = words[1];
+    }
 
-    const words = this.imgData.split(',');
-    this.imgData = words[1];
 
     this.exportData = JSON.stringify({name:this.nameData, shortDescription: this.shortDescData, description:this.descData, image: this.imgData});
 
-    console.log(this.exportData)
+
 
     this.http.put(`https://character-database.becode.xyz/characters/${this.target}`,{
       "name": this.nameData,
@@ -106,7 +132,7 @@ export class EditComponent implements OnInit {
     },httpOptions)
     .subscribe(
         (val) => {
-            console.log("PUT call successful value returned in body", val);
+            window.location.replace(window.location.href)
         },
         response => {
             console.log("PUT call in error", response);
@@ -142,4 +168,7 @@ export class EditComponent implements OnInit {
           console.log("The POST observable is now completed.");
       });
   }
+
+ 
+  
 }
