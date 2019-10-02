@@ -132,7 +132,7 @@ export class EditComponent implements OnInit {
     },httpOptions)
     .subscribe(
         (val) => {
-            window.location.replace("/" + "characters/" + this.target)
+            window.location.replace("/")
         },
         response => {
             console.log("PUT call in error", response);
