@@ -1,4 +1,4 @@
-<h2>Update this hero !</h2>
+<h2 id="subtitle">Update this hero !</h2>
 <div id="edit" *ngFor="let character of posts | async">
 
         
@@ -13,24 +13,24 @@
       
             <button class="btn btn-danger" title="delete this hero ?" (click)="displayModal()">delete</button> 
     
-            <div id="modal">
-    
-                    <p>Hey are you sure you want to delete him ?  </p>
+            <div  id="modal">
+
+                    <h2 class="info">Hey, are you sure you want to delete him ?  </h2>
             
-                    <button type="button"  (click)="remove()"  class="modalBtn">
+                    
+                    <button  type="button"  (click)="remove()"  class=" btn btn-danger modalBtn">
             
                         Yes 
             
                     </button>
                     
-                    <button type="button" (click)="hideModal()" class="modalBtn">
+                    <button type="button" (click)="hideModal()" class=" btn btn-success modalBtn">
             
                         NO
             
                     </button>
             
-            
-                </div>
+                 </div>
         
 
 

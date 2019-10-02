@@ -1,41 +1,47 @@
-<h1> character </h1>
+<h2 class="subtitle"> character </h2>
 <hr>
 <div id="character" *ngFor="let character of posts | async">
   
     
-        <div *ngIf="character.id === target">
+        <div class="characterElt" *ngIf="character.id === target">
 
 
         <h3 class="name"> {{character.name}}</h3>
 
-        <img src="data:image/jpeg;base64,{{character.image}}">
+        <img class="imgElts" src="data:image/jpeg;base64,{{character.image}}">
    
-        <p><em><i>{{character.description}}</i></em></p>
-  
-        <button><a routerLink="/edit/{{character.id}}" routerLinkActive="active">Edit</a></button>
-        <button type="button"  (click)="displayModal()">remove</button>
 
-        <div id="modal">
-    
-            <p>Hey are you sure you want to delete him ?  </p>
-    
-            <button type="button"  (click)="remove(character.id)"  class="modalBtn">
-    
-                Yes 
-    
-            </button>
-            
-            <button type="button" (click)="hideModal()" class="modalBtn">
-    
-                NO
-    
-            </button>
-    
-    
+        <p class="desc"><em><i>{{character.shortDescription}}</i></em></p><hr>
+
+        <p class="desc"><em><i>{{character.description}}</i></em></p>
+  
+        <div class="wrapBtn">
+        <button class="btn btn-success btnElts"><a class="links" routerLink="/edit/{{character.id}}" routerLinkActive="active">Edit</a></button>
+        <button type="button" class="btn btn-danger btnElts"  (click)="displayModal()">remove</button>
         </div>
 
+        
+        <div  id="modal">
+
+                <h2 class="info">Hey, are you sure you want to delete him ?  </h2>
+        
+                
+                <button  type="button"  (click)="remove()"  class=" btn btn-danger modalBtn">
+        
+                    Yes 
+        
+                </button>
+                
+                <button type="button" (click)="hideModal()" class=" btn btn-success modalBtn">
+        
+                    NO
+        
+                </button>
+        
+             </div>
+
 
 </div>
 </div>
 
-<button> <a routerLink="/create" routerLinkActive="active"> Create </a></button>
+<button id="newBtn"> <a class="links" routerLink="/create" routerLinkActive="active"> Create </a></button>

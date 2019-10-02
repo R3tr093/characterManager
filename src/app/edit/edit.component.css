@@ -26,7 +26,7 @@ textarea
     margin: auto;
 }
 
-h2
+#subtitle
 {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -43,11 +43,29 @@ h2
 {
     position: fixed;
     top: 40%;
-    left: 40%;
+    left: 25%;
     background: white;
     border: 1px solid black;
     display: none;
+    background-color: antiquewhite;
+    border: 3px solid cornflowerblue;
+    border-radius: 10px;
+    height: 30vh;
+    width: 50%;
 
+}
+
+.modalBtn
+{
+    margin-left: 30px;
+    width: 150px;
+}
+
+.info
+{
+    font-weight: bold;
+    margin-top: 5%;
+    margin-bottom: 50px;
 }
 
 #newBtn
