@@ -1,16 +1,22 @@
-<h1> List of characters </h1>
+<h1 id="subtitle"> List of characters </h1>
 <hr>
 <div id="home" *ngFor="let character of posts | async">
 
+    <div class="charactersElts">
+
+ 
+
    <h3 class="name"> {{character.name}}</h3>
 
-    <img src="data:image/jpeg;base64,{{character.image}}">
+    <img class="imgElts" src="data:image/jpeg;base64,{{character.image}}">
     
-    <p><em><i>{{character.shortDescription}}</i></em></p>
+    <p class="desc"><em><i>{{character.shortDescription}}</i></em></p>
    
-    <button> <a routerLink="/characters/{{character.id}}" routerLinkActive="active">See more</a></button>
-    <button>  <a routerLink="/edit/{{character.id}}" routerLinkActive="active">Edit</a></button>
-    <button type="button"  (click)="displayModal(character.id)">remove</button>
+    <div class="wrapBtn">
+    <button class="btn btn-primary btnElts"   > <a class="links" routerLink="/characters/{{character.id}}" routerLinkActive="active">See more</a></button>
+    <button class="btn btn-warning btnElts"   >  <a  class="links" routerLink="/edit/{{character.id}}" routerLinkActive="active">Edit</a></button>
+    <button type="button" class="btn btn-danger btnElts"   (click)="displayModal(character.id)">remove</button>
+    </div>
 
     <div id="modal">
 
@@ -28,6 +34,7 @@
 
         </button>
 
+     </div>
 
     </div>
 
@@ -35,5 +42,5 @@
 
  
 
-<button> <a routerLink="/create" routerLinkActive="active"> Create </a></button>
+<button id="newBtn"> <a class="links" routerLink="/create" routerLinkActive="active"> Create </a></button>
 
