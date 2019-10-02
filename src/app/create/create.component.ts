@@ -85,8 +85,7 @@ export class CreateComponent implements OnInit {
     this.http.post("https://character-database.becode.xyz/characters",this.exportData,httpOptions)
         .subscribe(
             (val) => {
-                console.log("POST call successful value returned in body", 
-                            val);
+              window.location.replace("/");
             },
             response => {
                 console.log("POST call in error", response);

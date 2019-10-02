@@ -116,4 +116,30 @@ export class EditComponent implements OnInit {
         });
   }
 
+  displayModal(){
+
+    let modalElt = document.getElementById('modal');
+    modalElt.style.display = "block";
+
+
+  }
+
+  hideModal(){
+    let modalElt = document.getElementById('modal');
+    modalElt.style.display = "none";
+  }
+
+  remove(){
+
+    this.posts = this.http.delete("https://character-database.becode.xyz/characters/" + this.target).subscribe(
+      (val) => {
+        window.location.replace("/");
+      },
+      response => {
+          console.log("POST call in error", response);
+      },
+      () => {
+          console.log("The POST observable is now completed.");
+      });
+  }
 }

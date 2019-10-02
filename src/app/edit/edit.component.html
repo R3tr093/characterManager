@@ -1,5 +1,4 @@
-<h1> character </h1>
-<hr>
+<h2>Update this hero !</h2>
 <div id="edit" *ngFor="let character of posts | async">
 
         
@@ -12,39 +11,62 @@
        
             <p><em><i>{{character.description}}</i></em></p>
       
-            <button><a routerLink="/edit/{{character.id}}" routerLinkActive="active">Delete</a></button> 
+            <button class="btn btn-danger" (click)="displayModal()">delete</button> 
     
+            <div id="modal">
     
+                    <p>Hey are you sure you want to delete him ?  </p>
+            
+                    <button type="button"  (click)="remove()"  class="modalBtn">
+            
+                        Yes 
+            
+                    </button>
+                    
+                    <button type="button" (click)="hideModal()" class="modalBtn">
+            
+                        NO
+            
+                    </button>
+            
+            
+                </div>
+        
+
+
+
     </div>
     </div>
+    <hr>
 
     <div id="create">
+
                 <form  action="https://character-database.becode.xyz/characters/"> 
                 
-                <p>Type in a name : <br>
+                <p>Type in a new name : <br>
                     
                     <input type="text" required min="2" maxlength="20" id="name" name="name"> 
                 
                 </p>    
                 
-                <p>Type in a  short description :  </p>
+                <p>Type in a new short description :  </p>
                 <br>
                 <input type="text" required min="2" maxlength="90" id="shortDesc" name="shortDescription" required>
                 
                 
-                <p>Type in a  description : </p>
+                <p>Type in a new  description : </p>
                 <br>
                 <textarea type="" required min="2" maxlength="100" name="desc" id="description" required></textarea> 
                 
-                
+                <div id="filePick">
                 <input type="file" id="files"  required /><br>
                 <output id="list" ></output><br> 
-                
+                </div>
                 <input style="display: none" required >
                 
                 
                 
-                <button type="button" (click)="editData()">Create</button>
+                <button  class="btn btn-primary"  id="sendBtn" type="button" (click)="editData()">Update</button>
                 
                 
                 </form>

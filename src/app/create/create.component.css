@@ -3,3 +3,32 @@
  height: 100px;
  margin: 10px 5px 0 0;
 }
+#create
+{
+    padding: 20px;
+    
+}
+#filePick
+{
+    padding: 20px;
+    border: 2px solid cornflowerblue;
+    width: 400px;
+    margin: auto;
+}
+#sendBtn
+{
+    margin-top: 50px;
+}
+
+textarea
+{
+    padding: 5px;
+    width: 400px;
+    margin: auto;
+}
+h2
+{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: 'Shadows Into Light', cursive;
+}
