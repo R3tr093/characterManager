@@ -92,3 +92,29 @@ textarea
     font-size: 19px;
     text-decoration: none;
 }
+
+#homeBtn
+{
+    position: fixed;
+    left: 5%;
+    top: 58%;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    color: white;
+    font-style: italic;
+    font-family: 'Shadows Into Light', cursive;
+    background-color:  red;
+    transition-duration: 0,4s;
+    color: white;
+    border: none;
+    box-shadow: 0px 4px 16px 0px rgba(0,0,0,1);
+}
+
+#homeBtn:hover
+{
+    background-color: #4CAF50;
+    font-size: 19px;
+    
+}
+
